@@ -22,6 +22,55 @@ class MainMenuAdmin extends Widget
                         'label' => 'Шаблоны',
                         'url' => Url::to(['/template'])
                     ],
+                    /*[
+                        'label' => 'Блог',
+                        'url' => Url::to(['/blog']),
+                        'active' => Yii::$app->controller->module->id == 'blog'
+                    ],*/
+
+                    [
+                        'label' => 'Блог',
+                        'items' => [
+                            [
+                                'label' => 'Блог',
+                                'url' => Url::to(['/blog']),
+                                'active' => Yii::$app->controller->module->id == 'blog'
+                            ],
+                            [
+                                'label' => 'Настройки',
+                                'url' => Url::to(['/blog/options/edit_options']),
+                                'active' => Yii::$app->controller->module->id == 'blog' ,
+                            ],
+                        ],
+                        'options' => [
+                            'class' => 'treeview',
+                        ],
+                        'template' => '<a href="#"><i class="fa fa-leanpub"></i> <span>{label}</span> <i class="fa fa-angle-left pull-right"></i></a>',
+                    ],
+
+                    [
+                        'label' => 'Галерея',
+                        'items' => [
+                            [
+                                'label' => 'Категории',
+                                'url' => Url::to(['/category']),
+                                'active' => Yii::$app->controller->module->id == 'gallery_category'
+                            ],
+                            [
+                                'label' => 'Работы',
+                                'url' => Url::to(['/work']),
+                                'active' => Yii::$app->controller->module->id == 'gallery_work' ,
+                            ],
+                        ],
+                        'options' => [
+                            'class' => 'treeview',
+                        ],
+                        'template' => '<a href="#"><i class="fa fa-leanpub"></i> <span>{label}</span> <i class="fa fa-angle-left pull-right"></i></a>',
+                    ],
+                    [
+                        'label' => 'Сотрудничество',
+                        'url' => Url::to(['/cooperation']),
+                    ],
 
                 ],
                 'activateItems' => true,

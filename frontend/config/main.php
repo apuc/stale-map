@@ -35,8 +35,10 @@ return [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
+            'enableStrictParsing' => false,
             'rules' => [
-                '/' => 'mainpage/default'
+                '/' => 'mainpage/default',
+                'blog/<slug>' => 'blog/default/view'
             ]
         ],
         'mailer' => [
@@ -47,6 +49,15 @@ return [
     'modules' => [
         'mainpage' => [
             'class' => 'frontend\modules\mainpage\Mainpage',
+        ],
+        'blog' => [
+            'class' => 'frontend\modules\blog\Blog',
+        ],
+        'gallery' => [
+            'class' => 'frontend\modules\gallery\Gallery',
+        ],
+        'cooperation' => [
+            'class' => 'frontend\modules\cooperation\Cooperation',
         ],
     ],
     'params' => $params,

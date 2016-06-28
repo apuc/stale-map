@@ -21,9 +21,11 @@ class AppAsset extends AssetBundle
         'css/site.css',
         'theme/css/styles.css',
         'theme/css/olstyle.css',
+        'css/style.css',
     ];
     public $js = [
         'theme/js/lib/html5.js',
+        'js/myscript.js',
         'theme/js/jquery-1.10.1.min.js',
         'theme/js/lib/jquery.flexslider.js',
         'theme/js/lib/isotope.pkgd.min.js',

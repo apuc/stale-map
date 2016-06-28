@@ -19,6 +19,18 @@ return [
         'template' => [
             'class' => 'backend\modules\template\Template',
         ],
+        'blog' => [
+            'class' => 'backend\modules\blog\Blog',
+        ],
+        'gallery_category' => [
+            'class' => 'backend\modules\gallery_category\Gallery_category',
+        ],
+        'gallery_work' => [
+            'class' => 'backend\modules\gallery_work\Gallery_work',
+        ],
+        'cooperation' => [
+            'class' => 'backend\modules\cooperation\Cooperation',
+        ],
     ],
     'components' => [
         /*'user' => [
@@ -46,6 +58,10 @@ return [
             'rules' => [
                 'settings' => 'settings/settings',
                 'template' => 'template/template',
+                'blog' => 'blog/blog',
+                'category' => 'gallery_category/gallery_category',
+                'work' => 'gallery_work/gallery_work',
+                'cooperation' => 'cooperation/cooperation',
             ]
         ],
         'mailer' => [

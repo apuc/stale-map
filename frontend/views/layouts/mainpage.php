@@ -23,12 +23,18 @@ AppAsset::register($this);
     <?php $this->head() ?>
 </head>
 <body>
-<?php $this->beginBody() ?>
+<div class="outer-wrapper">
+    <?= \frontend\widgets\ShowHeader::widget(); ?>
+    <div class="content-wrapper">
+        <?php $this->beginBody() ?>
 
-<?= Alert::widget() ?>
-<?= $content ?>
+        <?= Alert::widget() ?>
+        <?= $content ?>
 
-<?php $this->endBody() ?>
+        <?php $this->endBody() ?>
+    </div>
+    <?= \frontend\widgets\ShowFooter::widget(); ?>
+</div>
 </body>
 </html>
 <?php $this->endPage() ?>
