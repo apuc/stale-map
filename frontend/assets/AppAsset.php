@@ -18,24 +18,32 @@ class AppAsset extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
-        'css/site.css',
-        'theme/css/styles.css',
-        'theme/css/olstyle.css',
-        'css/style.css',
+        'css/libs.min.css',
+        'css/owl.carousel.css',
+        'css/owl.theme.css',
+        'css/owl.transitions.css',
+        'css/style.min.css',
     ];
     public $js = [
-        'theme/js/lib/html5.js',
-        'js/myscript.js',
-        'theme/js/jquery-1.10.1.min.js',
-        'theme/js/lib/jquery.flexslider.js',
-        'theme/js/lib/isotope.pkgd.min.js',
-        'theme/js/lib/mousescroll.js',
-        'theme/js/lib/placeholders.min.js',
-        'theme/js/lib/jquery.mousewheel-3.0.6.pack.js',
-        'theme/js/lib/jquery.fancybox.js',
-        'theme/js/js.js',
-        'theme/js/olscript.js',
+        'js/jquery-1.10.1.min.js',
+        'js/jquery-2.1.3.min.js',
+        'js/lib/html5.js',
+
+        'js/script.min.js',
+        'js/owl.carousel.min.js',
+        /*'js/owl.carousel.min.js',*/
+
+
+        'js/lib/jquery.flexslider.js',
+        'js/lib/isotope.pkgd.min.js',
+        'js/lib/mousescroll.js',
+        'js/lib/placeholders.min.js',
+        'js/lib/jquery.mousewheel-3.0.6.pack.js',
+        'js/lib/jquery.fancybox.js',
+        'js/js.js',
+        'js/olscript.js',
         'https://maps.googleapis.com/maps/api/js?key=AIzaSyDlM9JGhoTl4aeHmLdbFUw6jSUa__C7XJM&callback=initMap',
+        'js/myscript.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',

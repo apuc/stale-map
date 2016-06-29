@@ -797,113 +797,36 @@ $this->registerMetaTag([
         </section>
 
         <section class="section-review">
-
             <div class="site-container">
-
                 <h3>отзывы</h3>
-
-
-
-                <div class="flexslider review-slider">
-
+                <div class="flexslider flexslider_main review-slider">
                     <ul class="slides">
-
-                        <li>
-
-                            <div class="item">
-
-                                <div class="left-part">
-
-                                    <div class="img">
-
-                                        <img src="theme/images/tmp/re-img-1.jpg" alt=""/>
-
+                        <?php foreach($reviews as $review): ?>
+                            <li>
+                                <div class="item">
+                                    <div class="left-part">
+                                        <div class="img">
+                                            <img src="<?= $review->img; ?>" alt=""/>
+                                        </div>
+                                        <div class="stars">
+                                            <img src="img/tmp/stars.png" alt=""/>
+                                        </div>
                                     </div>
-
-                                    <div class="stars">
-
-                                        <img src="theme/images/tmp/stars.png" alt=""/>
-
+                                    <div class="right-part">
+                                        <p>
+                                            <?= $review->text; ?>
+                                        </p>
+                                        <span class="name"><?= $review->name; ?></span>
                                     </div>
-
                                 </div>
-
-                                <div class="right-part">
-
-                                    <p>
-
-                                        Очень доволен проделанной работой. Сначала были сомнения - а не пожалею ли я в будущем? Но то, каким
-
-                                        получился
-
-                                        результат, просто поразил меня! Передо мной стоял истинный красавец, а не та тачка, на которой я гонял 5
-
-                                        лет.
-
-                                        Спасибо, ребята!
-
-                                    </p>
-
-                                    <span class="name">Роман Абрамович</span>
-
-                                </div>
-
-                            </div>
-
-                        </li>
-
-                        <li>
-
-                            <div class="item">
-
-                                <div class="left-part">
-
-                                    <div class="img">
-
-                                        <img src="theme/images/tmp/re-img-1.jpg" alt=""/>
-
-                                    </div>
-
-                                    <div class="stars">
-
-                                        <img src="theme/images/tmp/stars.png" alt=""/>
-
-                                    </div>
-
-                                </div>
-
-                                <div class="right-part">
-
-                                    <p>
-
-                                        Очень доволен проделанной работой. Сначала были сомнения - а не пожалею ли я в будущем? Но то, каким
-
-                                        получился
-
-                                        результат, просто поразил меня! Передо мной стоял истинный красавец, а не та тачка, на которой я гонял 5
-
-                                        лет.
-
-                                        Спасибо, ребята!
-
-                                    </p>
-
-                                    <span class="name">Роман Абрамович</span>
-
-                                </div>
-
-                            </div>
-
-                        </li>
+                            </li>
+                        <?php endforeach; ?>
 
                     </ul>
-
                 </div>
-
             </div>
-
         </section>
-
+        <?/*= \frontend\widgets\ShowReviews::widget(); */?>
 
 
         <section class="section-bg section-bg-2">

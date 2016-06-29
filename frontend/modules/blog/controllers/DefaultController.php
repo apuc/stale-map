@@ -14,7 +14,7 @@ use yii\web\NotFoundHttpException;
 class DefaultController extends Controller
 {
     public $limit = 1;
-    public $layout = 'mainpage';
+    public $layout = 'page';
 
     public function beforeAction($action)
     {
@@ -40,7 +40,6 @@ class DefaultController extends Controller
         $page = 1;
 
 
-
         return $this->render('index',
             [
                 'blog' => $blog,
@@ -61,7 +60,6 @@ class DefaultController extends Controller
             ->limit($this->limit)
             ->orderBy('dt_add')
             ->all();
-
 
         return $this->renderPartial('ajaxBlog',
             [

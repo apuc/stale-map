@@ -4,6 +4,7 @@ namespace backend\modules\gallery_work\controllers;
 
 use common\classes\Debug;
 use common\models\db\GalleryCategory;
+use common\models\db\GalleryWorkImg;
 use common\models\db\WorkCategory;
 use Yii;
 use backend\modules\gallery_work\models\GalleryWork;
@@ -70,6 +71,8 @@ class Gallery_workController extends Controller
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
            // Debug::prn($_POST['WorkCategory']['category_id']);
+            GalleryWorkImg::updateAll(['work_id' => $model->id], ['work_id' => 99999]);
+
             foreach ($_POST['WorkCategory']['category_id'] as $item) {
                 $catWork = new WorkCategory();
                 $catWork->category_id = $item;
@@ -100,7 +103,7 @@ class Gallery_workController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-
+            GalleryWorkImg::updateAll(['work_id' => $model->id], ['work_id' => 99999]);
             WorkCategory::deleteAll(['work_id' => $id]);
             foreach ($_POST['WorkCategory']['category_id'] as $item) {
                 $catWork = new WorkCategory();
@@ -118,12 +121,16 @@ class Gallery_workController extends Controller
             foreach ($catworkSel as $item) {
                 $selcat[] = $item->category_id;
             }
+
+            $img = GalleryWorkImg::find()->where(['work_id' => $id])->all();
+
             //Debug::prn($selcat);
             return $this->render('update', [
                 'model' => $model,
                 'category' => $category,
                 'catwork' => $catwork,
                 'selcat' => $selcat,
+                'img' => $img,
             ]);
         }
     }
@@ -155,5 +162,36 @@ class Gallery_workController extends Controller
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
+    }
+
+    public function actionUpload_file(){
+
+        //Debug::prn($_SERVER);
+
+        //$dir = Yii::$app->urlManagerFrontend->createAbsoluteUrl(['/frontend/web/media/workImg/']) . '/';
+        $dir = $_SERVER['DOCUMENT_ROOT'] . '/frontend/web/media/workImg/';
+        $dirDb = '/frontend/web/media/workImg/';
+        $i = 0;
+
+        if (!empty($_FILES['file']['name'][0])) {
+            GalleryWorkImg::deleteAll(['work_id' => 99999]);
+            foreach ($_FILES['file']['name'] as $file) {
+
+                move_uploaded_file($_FILES['file']['tmp_name'][$i], $dir . $file);
+                $img = new GalleryWorkImg();
+                $img->work_id = 99999;
+                $img->img = $dirDb . $file;
+
+                $img->save();
+
+                $i++;
+            }
+        }
+        echo 1;
+    }
+
+    public function actionDelete_file(){
+        GalleryWorkImg::deleteAll(['id' => $_GET['id']]);
+        echo 1;
     }
 }

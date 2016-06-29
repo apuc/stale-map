@@ -1,8 +1,10 @@
 <?php
 
+use kartik\file\FileInput;
 use mihaildev\ckeditor\CKEditor;
 use mihaildev\elfinder\InputFile;
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
@@ -49,17 +51,59 @@ use yii\widgets\ActiveForm;
             'options'       => ['class' => 'form-control itemImg'],
             'buttonOptions' => ['class' => 'btn btn-primary'],
             'value' => $model->thumb,
-            'buttonName' => 'Выбрать изображение'
+            'buttonName' => 'Выбрать изображение обложки'
         ]);
         ?>
     </div>
+
+    <?php
+    $preview = [];
+    $previewConfig = [];
+    if(!$model->isNewRecord){
+        foreach($img as $i){
+            $preview[] = "<img src='$i->img' class='file-preview-image'>";
+            $previewConfig[] = [
+                'caption' => '',
+                'url' => '/secure/gallery_work/gallery_work/delete_file?id=' . $i->id
+            ];
+        }
+    }
+
+    echo '<label class="control-label">Добавить фото</label>';
+
+
+    echo FileInput::widget([
+        'name' => 'file[]',
+        'id' => 'input-5',
+        'attribute' => 'attachment_1',
+        'value' => '@frontend/media/img/1.png',
+        'options' => [
+                'multiple' => true,
+                'showCaption' => false,
+                'showUpload' => false,
+                'uploadAsync'=> false,
+            ],
+        'pluginOptions' => [
+            'uploadUrl' => Url::to(['/gallery_work/gallery_work/upload_file']),
+            'language' => "ru",
+            'previewClass' => 'hasEdit',
+            'uploadAsync'=> false,
+            'showUpload' => false,
+            'dropZoneEnabled' => false,
+            'overwriteInitial' => false,
+            'initialPreview' => $preview,
+            'initialPreviewConfig' => $previewConfig
+        ],
+    ]);
+
+    ?>
 
     <?= $form->field($model, 'meta_description')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'meta_keywords')->textInput(['maxlength' => true]) ?>
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Сохранить' : 'Сохранить', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($model->isNewRecord ? 'Сохранить' : 'Сохранить', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary', 'id' => 'saveInfo']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

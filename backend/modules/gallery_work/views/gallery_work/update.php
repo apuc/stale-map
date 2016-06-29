@@ -20,6 +20,7 @@ $this->params['breadcrumbs'][] = 'Редактировать';
         'category' => $category,
         'catwork' => $catwork,
         'selcat' => $selcat,
+        'img' => $img,
     ]) ?>
 
 </div>

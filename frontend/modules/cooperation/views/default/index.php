@@ -1,25 +1,23 @@
-<section class="blog">
+<section class="block-magenta cooperation">
+    <!-- open .site-container -->
     <div class="site-container">
+        <h3>С нами Вы увеличите продажи</h3>
+        <!-- open .price__wrap -->
+        <div class="price__wrap">
 
-<?php foreach ($cooperation as $item): ?>
-    <div class="cooperationWr">
-        <div class="cooperationImg">
-            <img src="<?= $item->img; ?>" alt="">
+            <?php foreach ($cooperation as $item): ?>
+                <!-- open .cooperation__item -->
+                <div class="cooperation__item">
+                    <img src="<?= $item->img; ?>" alt="<?= $item->name?>" class="cooperation__item_icon" />
+                    <h4><?= $item->name?></h4>
+                    <p><?= $item->text?></p>
+                </div>
+                <!-- close .cooperation__item -->
+            <?php endforeach; ?>
         </div>
-        <div class="cooperationNmame">
-            <?= $item->name?>
-        </div>
-        <div class="cooperationText">
-            <?= $item->text?>
-        </div>
+        <!-- close .price__wrap -->
+        <a href="" class="cooperation__partner-but">стать партнёром</a>
     </div>
-<?php endforeach; ?>
-        <div class="cleared"></div>
-
-        <div class="btn-wrapp style-a"><a class="btn" href="">Стать партнером</a></div>
-    </div>
-
-    
 </section>
 
-
+<?= \frontend\widgets\RequestStyling::widget(); ?>

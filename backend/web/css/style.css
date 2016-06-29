@@ -19,3 +19,9 @@
 .contentLoginAdmin{
     margin-left: 0;
 }
+
+.file-preview-image {
+    vertical-align: middle;
+    width: auto!important;
+    height: 160px!important;
+}

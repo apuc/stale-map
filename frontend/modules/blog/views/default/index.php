@@ -20,27 +20,27 @@ $this->registerMetaTag([
 ]);
 ?>
 
-<section class="blog">
+<!--<section class="blog">
     <div class="site-container">
         <?php
-        foreach($blog as $item):?>
+/*        foreach($blog as $item):*/?>
             <div class="blogWr">
-                <img src="<?= $item->images; ?>" alt="<?= $item->title; ?>">
-                <div class="title"><a href="<?= \yii\helpers\Url::to(['view','slug' => $item->slug]) ?>"><?= $item->title; ?></a></div>
-                <div class="shortdesc"><?= $item->short_description; ?></div>
+                <img src="<?/*= $item->images; */?>" alt="<?/*= $item->title; */?>">
+                <div class="title"><a href="<?/*= \yii\helpers\Url::to(['view','slug' => $item->slug]) */?>"><?/*= $item->title; */?></a></div>
+                <div class="shortdesc"><?/*= $item->short_description; */?></div>
             </div>
-        <?php endforeach; ?>
+        <?php /*endforeach; */?>
 
 
-         <?php if (($limit * $page) < $blogCount): ?>
+         <?php /*if (($limit * $page) < $blogCount): */?>
 
             <div class="space--more">
-                <a href="#" data-csrf="<?= Yii::$app->request->getCsrfToken()?>" id="more-news" data-count="<?= $page; ?>">Загрузить еще</a>
+                <a href="#" data-csrf="<?/*= Yii::$app->request->getCsrfToken()*/?>" id="more-news" data-count="<?/*= $page; */?>">Загрузить еще</a>
             </div>
             <span class="ajaxNews"></span>
-        <?php endif; ?>
+        <?php /*endif; */?>
     </div>
-</section>
+</section>-->
 
 
 <!-- open .magenta -->
@@ -70,7 +70,7 @@ $this->registerMetaTag([
         <?php if (($limit * $page) < $blogCount): ?>
             <a href="#" data-csrf="<?= Yii::$app->request->getCsrfToken()?>" id="more-news" data-count="<?= $page; ?>" class="news-box__more"><span class="icon icon-dots"></span></a>
 
-            <span class="ajaxNews"></span>
+
         <?php endif; ?>
 
 
@@ -79,3 +79,7 @@ $this->registerMetaTag([
     </div>
 </section>
 <!-- close .magenta -->
+
+<?= \frontend\widgets\RequestStyling::widget(); ?>
+
+<?= \frontend\widgets\ShowReviews::widget(); ?>

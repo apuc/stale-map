@@ -1,15 +1,4 @@
 $(document).ready(function(){
-    $('#reservation').datepicker({
-        format: 'yyyy-mm-dd',
-        language: 'ru'
-    });
-
-    $(".timepicker").timepicker({
-        showInputs: false,
-        maxHours: 24,
-        showMeridian: false
-    });
-
 
     $(document).on('change','.itemImg',function(){
         var path = $('.itemImg').val();
@@ -26,5 +15,13 @@ $(document).ready(function(){
                 $(".selectCat").html(data);
             }
         });
+    });
+
+    $('#saveInfo').on('click', function(e){
+
+
+        $('#input-5').fileinput('upload');
+        //return false;
+
     });
 });

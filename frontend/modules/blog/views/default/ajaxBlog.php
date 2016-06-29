@@ -9,18 +9,21 @@
 
 <?php
 foreach($blog as $item):?>
-    <div class="blogWr">
-        <img src="<?= $item->images; ?>" alt="<?= $item->title; ?>">
-        <div class="title"><a href="#"><?= $item->title; ?></a></div>
-        <div class="shortdesc"><?= $item->short_description; ?></div>
+    <div class="wall-column">
+    <a href="<?= \yii\helpers\Url::to(['view','slug' => $item->slug]) ?>" class="news-box__item">
+				<span class="news-box__item_thumb">
+					<img src="<?= $item->images; ?>" alt="<?= $item->title; ?>" />
+				</span>
+
+        <strong><?= $item->title; ?></strong>
+        <p><?= $item->short_description; ?></p>
+    </a>
     </div>
 <?php endforeach; ?>
 
 
-<?php if (($limit * $page) < $blogCount): ?>
+<?php /*if (($limit * $page) < $blogCount): */?><!--
 
-    <div class="space--more">
-        <a href="#" data-csrf="<?= Yii::$app->request->getCsrfToken()?>" id="more-news" data-count="<?= $page; ?>">Загрузить еще</a>
-    </div>
+    <a href="#" data-csrf="<?/*= Yii::$app->request->getCsrfToken()*/?>" id="more-news" data-count="<?/*= $page; */?>" class="news-box__more"><span class="icon icon-dots"></span></a>
 
-<?php endif; ?>
+--><?php /*endif; */?>

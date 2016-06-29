@@ -31,6 +31,12 @@ return [
         'cooperation' => [
             'class' => 'backend\modules\cooperation\Cooperation',
         ],
+        'reviews' => [
+            'class' => 'backend\modules\reviews\Reviews',
+        ],
+        'about' => [
+            'class' => 'backend\modules\about\About',
+        ],
     ],
     'components' => [
         /*'user' => [
@@ -62,6 +68,8 @@ return [
                 'category' => 'gallery_category/gallery_category',
                 'work' => 'gallery_work/gallery_work',
                 'cooperation' => 'cooperation/cooperation',
+                'reviews' => 'reviews/reviews',
+                'about' => 'about/default',
             ]
         ],
         'mailer' => [
