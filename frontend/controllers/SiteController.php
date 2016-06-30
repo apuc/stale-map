@@ -1,6 +1,13 @@
 <?php
 namespace frontend\controllers;
 
+use common\classes\Debug;
+use common\models\db\About;
+use common\models\db\AboutPhoto;
+use common\models\db\AboutWorkId;
+use common\models\db\ContactPage;
+use common\models\db\ContactPhone;
+use common\models\db\Diplom;
 use Yii;
 use common\models\LoginForm;
 use frontend\models\PasswordResetRequestForm;
@@ -115,20 +122,14 @@ class SiteController extends Controller
      */
     public function actionContact()
     {
-        $model = new ContactForm();
-        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-            if ($model->sendEmail(Yii::$app->params['adminEmail'])) {
-                Yii::$app->session->setFlash('success', 'Thank you for contacting us. We will respond to you as soon as possible.');
-            } else {
-                Yii::$app->session->setFlash('error', 'There was an error sending email.');
-            }
+        $this->layout = 'page';
+        $model = ContactPage::find()->one();
+        $phone = ContactPhone::find()->all();
+        return $this->render('contact', [
+            'model' => $model,
+            'phone' => $phone,
+        ]);
 
-            return $this->refresh();
-        } else {
-            return $this->render('contact', [
-                'model' => $model,
-            ]);
-        }
     }
 
     /**
@@ -138,7 +139,24 @@ class SiteController extends Controller
      */
     public function actionAbout()
     {
-        return $this->render('about');
+        $this->layout = 'page';
+
+        $about = About::find()->one();
+
+        $work = AboutWorkId::find()
+            ->leftJoin('gallery_work', '`gallery_work`.`id` = `about_work_id`.`work_id`')
+            ->with('gallery_work')
+            ->all();
+
+        $aboutImg = AboutPhoto::find()->all();
+
+
+        return $this->render('about',
+            [
+                'about' => $about,
+                'work' => $work,
+                'aboutImg' => $aboutImg,
+            ]);
     }
 
     /**

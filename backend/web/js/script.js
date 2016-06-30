@@ -18,10 +18,17 @@ $(document).ready(function(){
     });
 
     $('#saveInfo').on('click', function(e){
-
-
         $('#input-5').fileinput('upload');
         //return false;
 
+    });
+
+    $(document).on('click', '.addPhone', function(){
+        $(this).before('<div><input type="text" class="form-control leftInput" name="Phone[]"><span class="delPhone">Удалить</span></div>');
+    });
+
+    $(document).on('click', '.delPhone', function(){
+        $(this).parent().remove();
+        $(this).remove();
     });
 });

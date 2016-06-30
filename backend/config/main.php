@@ -37,6 +37,15 @@ return [
         'about' => [
             'class' => 'backend\modules\about\About',
         ],
+        'diplom' => [
+            'class' => 'backend\modules\diplom\Diplom',
+        ],
+        'contact' => [
+            'class' => 'backend\modules\contact\Contact',
+        ],
+        'price' => [
+            'class' => 'backend\modules\price\Price',
+        ],
     ],
     'components' => [
         /*'user' => [
@@ -70,6 +79,9 @@ return [
                 'cooperation' => 'cooperation/cooperation',
                 'reviews' => 'reviews/reviews',
                 'about' => 'about/default',
+                'diplom' => 'diplom/diplom',
+                'contact' => 'contact/default',
+                'price' => 'price/price',
             ]
         ],
         'mailer' => [

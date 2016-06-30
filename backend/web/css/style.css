@@ -25,3 +25,21 @@
     width: auto!important;
     height: 160px!important;
 }
+
+.leftInput {
+    width: 80%;
+    float: left;
+}
+.addPhone{
+    float: left;
+    width: 100%;
+}
+
+.delPhone{
+    display: block;
+    float: left;
+}
+.phone{
+    float: left;
+    width: 100%;
+}

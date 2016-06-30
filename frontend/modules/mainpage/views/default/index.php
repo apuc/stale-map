@@ -721,79 +721,26 @@ $this->registerMetaTag([
 
 
         <section class="section-diploma transform-skew">
-
             <div class="transform-inner">
-
                 <div class="site-container">
-
                     <h3>Дипломы</h3>
-
-
-
                     <div class="flexslider diploma-slider">
-
                         <ul class="slides">
-
-                            <li>
-
-                                <a class="fancybox" rel="gallery1" href="theme/images/tmp/diplom-1.png" title="">
-
-                                    <img src="theme/images/tmp/diplom-1.png" alt=""/>
-
+                            <?php
+                            $i = 1;
+                            foreach($diplom as $item):?>
+                                <?= ($i == 1) ? '<li>' : ''; ?>
+                                <a class="fancybox" rel="gallery1" href="<?= $item->img; ?>" title="">
+                                    <img src="<?= $item->img; ?>" alt=""/>
                                 </a>
-
-
-
-                                <a class="fancybox" rel="gallery1" href="theme/images/tmp/diplom-2.png" title="">
-
-                                    <img src="theme/images/tmp/diplom-2.png" alt=""/>
-
-                                </a>
-
-
-
-                                <a class="fancybox" rel="gallery1" href="theme/images/tmp/diplom-3.png" title="">
-
-                                    <img src="theme/images/tmp/diplom-3.png" alt=""/>
-
-                                </a>
-
-                            </li>
-
-                            <li>
-
-                                <a class="fancybox" rel="gallery1" href="theme/images/tmp/diplom-1.png" title="">
-
-                                    <img src="theme/images/tmp/diplom-1.png" alt=""/>
-
-                                </a>
-
-
-
-                                <a class="fancybox" rel="gallery1" href="theme/images/tmp/diplom-2.png" title="">
-
-                                    <img src="theme/images/tmp/diplom-2.png" alt=""/>
-
-                                </a>
-
-
-
-                                <a class="fancybox" rel="gallery1" href="theme/images/tmp/diplom-3.png" title="">
-
-                                    <img src="theme/images/tmp/diplom-3.png" alt=""/>
-
-                                </a>
-
-                            </li>
-
+                                <?= ($i == 3) ? '</li>' : ''; ?>
+                                <?php ($i == 3) ? $i=0 : ''; ?>
+                                <?php $i++; ?>
+                            <?php endforeach; ?>
                         </ul>
-
                     </div>
-
                 </div>
-
             </div>
-
         </section>
 
         <section class="section-review">
@@ -1267,7 +1214,7 @@ $this->registerMetaTag([
 
         <section class="section-bg section-map">
 
-
+            <div id="bg_map" class="home__bg-map" wifth="100%" height="100%"></div>
 
         </section>
 

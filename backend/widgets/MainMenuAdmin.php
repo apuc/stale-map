@@ -77,6 +77,16 @@ class MainMenuAdmin extends Widget
                         'url' => Url::to(['/reviews']),
                         'active' => Yii::$app->controller->module->id == 'reviews' ,
                     ],
+                    [
+                        'label' => 'Дипломы',
+                        'url' => Url::to(['/diplom']),
+                        'active' => Yii::$app->controller->module->id == 'diplom' ,
+                    ],
+                    [
+                        'label' => 'Прайс',
+                        'url' => Url::to(['/price']),
+                        'active' => Yii::$app->controller->module->id == 'price' ,
+                    ],
 
                     [
                         'label' => 'Страницы',
@@ -86,11 +96,11 @@ class MainMenuAdmin extends Widget
                                 'url' => Url::to(['/about']),
                                 'active' => Yii::$app->controller->module->id == 'about'
                             ],
-                            /*[
-                                'label' => 'Работы',
-                                'url' => Url::to(['/work']),
-                                'active' => Yii::$app->controller->module->id == 'gallery_work' ,
-                            ],*/
+                            [
+                                'label' => 'Контакты',
+                                'url' => Url::to(['/contact']),
+                                'active' => Yii::$app->controller->module->id == 'contact' ,
+                            ],
                         ],
                         'options' => [
                             'class' => 'treeview',

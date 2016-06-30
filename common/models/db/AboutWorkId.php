@@ -41,4 +41,12 @@ class AboutWorkId extends \yii\db\ActiveRecord
             'work_id' => 'Work ID',
         ];
     }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getgallery_work()
+    {
+        return $this->hasMany(GalleryWork::className(), ['id' => 'work_id']);
+    }
 }
