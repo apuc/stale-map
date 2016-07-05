@@ -8,4 +8,4 @@
         <!-- close .gallery-carousel__item -->
     <?php endforeach; ?>
 </div>
-<a class="gallery-carousel__title" href="#"><?= $work->name; ?> </a>
+<a class="gallery-carousel__title" href="<?= \yii\helpers\Url::to(['view', 'slug' => $work->slug]) ?>"><?= $work->name; ?> </a>

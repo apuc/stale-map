@@ -5,6 +5,11 @@ $(document).ready(function(){
         $('.media__upload_img').html('<img src="' +path + '" width="100px"/> <br>');
     });
 
+    $(document).on('change','.itemIcon',function(){
+        var path = $('.itemIcon').val();
+        $('.media__upload_icon').html('<img src="' +path + '" width="100px"/> <br>');
+    });
+
     $(document).on('change', '.selectLang', function(){
         var langId = $(this).val();
         $.ajax({
@@ -25,6 +30,20 @@ $(document).ready(function(){
 
     $(document).on('click', '.addPhone', function(){
         $(this).before('<div><input type="text" class="form-control leftInput" name="Phone[]"><span class="delPhone">Удалить</span></div>');
+    });
+
+    $(document).on('click', '.addSlid', function(){
+        $.ajax({
+            type: 'POST',
+            url: "/secure/franchise/default/show",
+            data: '',
+            success: function (data) {
+                console.log(data);
+                $('.addSlid').before(data);
+            }
+        });
+
+        return false;
     });
 
     $(document).on('click', '.delPhone', function(){

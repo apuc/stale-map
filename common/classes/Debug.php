@@ -6,7 +6,7 @@ class Debug
 {
     public static function prn($content)
     {
-        echo '<pre style="background: lightgray; border: 1px solid black; padding: 2px">';
+        echo '<pre style="background: lightgray; border: 1px solid black; padding: 2px; color: #000;">';
         print_r($content);
         echo '</pre>';
     }

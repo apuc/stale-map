@@ -102,6 +102,8 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'meta_keywords')->textInput(['maxlength' => true]) ?>
 
+    <?= $form->field($model, 'link_video')->textInput(['maxlength' => true]) ?>
+
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Сохранить' : 'Сохранить', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary', 'id' => 'saveInfo']) ?>
     </div>

@@ -8,6 +8,8 @@ use common\models\db\AboutWorkId;
 use common\models\db\ContactPage;
 use common\models\db\ContactPhone;
 use common\models\db\Diplom;
+use common\models\db\Franchise;
+use common\models\db\Price;
 use Yii;
 use common\models\LoginForm;
 use frontend\models\PasswordResetRequestForm;
@@ -159,6 +161,26 @@ class SiteController extends Controller
             ]);
     }
 
+
+    /**
+     * Displays about page.
+     *
+     * @return mixed
+     */
+    public function actionPrice()
+    {
+        $this->layout = 'page';
+
+        $model = Price::find()->all();
+
+
+        return $this->render('price',
+            [
+                'model' => $model,
+
+            ]);
+    }
+
     /**
      * Signs user up.
      *
@@ -178,6 +200,32 @@ class SiteController extends Controller
         return $this->render('signup', [
             'model' => $model,
         ]);
+    }
+
+    /**
+     * Signs user up.
+     *
+     * @return mixed
+     */
+    public function actionFranchise()
+    {
+        $this->layout = 'page';
+        $model = Franchise::find()->one();
+        return $this->render('franchise', [
+            'model' => $model,
+        ]);
+    }
+
+    /**
+     * Signs user up.
+     *
+     * @return mixed
+     */
+    public function actionSpecials()
+    {
+        $this->layout = 'page';
+
+        return $this->render('specials');
     }
 
     /**

@@ -17,6 +17,7 @@ use Yii;
  * @property string $meta_keywords
  * @property integer $dt_add
  * @property integer $dt_update
+ * @property integer $link_video
  */
 class GalleryWork extends \yii\db\ActiveRecord
 {
@@ -37,7 +38,7 @@ class GalleryWork extends \yii\db\ActiveRecord
             [['name', 'description', 'short_description', 'thumb', 'slug', 'meta_description', 'meta_keywords'], 'required'],
             [['description'], 'string'],
             [['dt_add', 'dt_update'], 'integer'],
-            [['name', 'short_description', 'thumb', 'slug', 'meta_description', 'meta_keywords'], 'string', 'max' => 255],
+            [['name', 'short_description', 'thumb', 'slug', 'meta_description', 'meta_keywords','link_video'], 'string', 'max' => 255],
         ];
     }
 
@@ -66,5 +67,13 @@ class GalleryWork extends \yii\db\ActiveRecord
     public function getgallery_work()
     {
         return $this->hasMany(WorkCategory::className(), ['work_id' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getgallery_work_img()
+    {
+        return $this->hasMany(GalleryWorkImg::className(), ['work_id' => 'id']);
     }
 }

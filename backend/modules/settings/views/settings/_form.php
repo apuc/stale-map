@@ -19,18 +19,7 @@ use yii\widgets\ActiveForm;
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Добавить' : 'Редактировать', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
-    <?php
-    if(!$model->isNewRecord){
-        foreach($img as $i){
-            $preview[] = "<img src='/$i->img' class='file-preview-image'>";
-            $previewConfig[] = [
-                'caption' => '',
-                'url' => '/gallery_work/gallery_work/delete_file?id=' . $i->id
-            ];
-        }
-    }
 
-    ?>
     <?php ActiveForm::end(); ?>
 
 </div>

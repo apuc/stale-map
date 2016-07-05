@@ -23,6 +23,7 @@ class AppAsset extends AssetBundle
         'css/owl.theme.css',
         'css/owl.transitions.css',
         'css/style.min.css',
+        'css/style.css',
     ];
     public $js = [
         'js/jquery-1.10.1.min.js',

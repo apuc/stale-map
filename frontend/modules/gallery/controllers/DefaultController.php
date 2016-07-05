@@ -45,4 +45,16 @@ class DefaultController extends Controller
         $img = GalleryWorkImg::find()->where(['work_id' => $_POST['id']])->all();
         echo $this->renderPartial('photo-slider', ['img' => $img, 'work' => $work]);
     }
+
+    public function actionView($slug){
+        $work = GalleryWork::find()
+            ->leftJoin('gallery_work_img', '`gallery_work_img`.`work_id` = `gallery_work`.`id`')
+            ->where(['slug' => $slug])
+            ->with('gallery_work_img')
+            ->one();
+        return $this->render('view',
+            [
+                'work' => $work,
+            ]);
+    }
 }

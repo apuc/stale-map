@@ -46,6 +46,21 @@ return [
         'price' => [
             'class' => 'backend\modules\price\Price',
         ],
+        'franchise' => [
+            'class' => 'backend\modules\franchise\Franchise',
+        ],
+        'specials' => [
+            'class' => 'backend\modules\specials\Specials',
+        ],
+        'services' => [
+            'class' => 'backend\modules\services\Services',
+        ],
+        'skills_command' => [
+            'class' => 'backend\modules\skills_command\Skills_command',
+        ],
+        'command' => [
+            'class' => 'backend\modules\command\Command',
+        ],
     ],
     'components' => [
         /*'user' => [
@@ -82,6 +97,11 @@ return [
                 'diplom' => 'diplom/diplom',
                 'contact' => 'contact/default',
                 'price' => 'price/price',
+                'franchise' => 'franchise/default',
+                'specials' => 'specials/specials',
+                'services' => 'services/services',
+                'skills' => 'skills_command/skills',
+                'command' => 'command/command',
             ]
         ],
         'mailer' => [

@@ -26,14 +26,14 @@ use common\classes\S;
                 <a href="" class="mobile-menu"><span></span></a>
                 <nav class="nav">
                     <ul>
-                        <li><a href="#gallery">Галерея</a></li>
-                        <li><a href="#blog">блог</a></li>
-                        <li><a href="#sotr">сотрудничество</a></li>
-                        <li><a href="#about">о нас</a></li>
-                        <li><a href="#contacts">контакты</a></li>
-                        <li><a href="#price">прайс</a></li>
-                        <li><a href="#franchise">франшиза</a></li>
-                        <li><a href="#deals">спецпредложения</a></li>
+                        <li><a href="<?= \yii\helpers\Url::to(['/gallery'])?>">Галерея</a></li>
+                        <li><a href="<?= \yii\helpers\Url::to(['/blog'])?>">блог</a></li>
+                        <li><a href="<?= \yii\helpers\Url::to(['/cooperation'])?>">сотрудничество</a></li>
+                        <li><a href="<?= \yii\helpers\Url::to(['/about'])?>">о нас</a></li>
+                        <li><a href="<?= \yii\helpers\Url::to(['/contact'])?>">контакты</a></li>
+                        <li><a href="<?= \yii\helpers\Url::to(['/price'])?>">прайс</a></li>
+                        <li><a href="<?= \yii\helpers\Url::to(['/franchise'])?>">франшиза</a></li>
+                        <li><a href="<?= \yii\helpers\Url::to(['/specials'])?>">спецпредложения</a></li>
                     </ul>
                 </nav>
             </div>

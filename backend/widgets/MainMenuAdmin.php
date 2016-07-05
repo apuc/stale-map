@@ -89,6 +89,30 @@ class MainMenuAdmin extends Widget
                     ],
 
                     [
+                        'label' => 'Спецпредложения',
+                        'items' => [
+                            [
+                                'label' => 'Спецпредложения',
+                                'url' => Url::to(['/specials']),
+                                'active' => Yii::$app->controller->module->id == 'specials',
+                            ],
+                            [
+                                'label' => 'Настройки',
+                                'url' => Url::to(['/specials/options/edit_options']),
+                                'active' => Yii::$app->controller->module->id == 'specials' ,
+                            ],
+                        ],
+                        'options' => [
+                            'class' => 'treeview',
+                        ],
+                        'template' => '<a href="#"><i class="fa fa-leanpub"></i> <span>{label}</span> <i class="fa fa-angle-left pull-right"></i></a>',
+                    ],
+                    [
+                        'label' => 'Услуги',
+                        'url' => Url::to(['/services']),
+                        'active' => Yii::$app->controller->module->id == 'services' ,
+                    ],
+                    [
                         'label' => 'Страницы',
                         'items' => [
                             [
@@ -100,6 +124,31 @@ class MainMenuAdmin extends Widget
                                 'label' => 'Контакты',
                                 'url' => Url::to(['/contact']),
                                 'active' => Yii::$app->controller->module->id == 'contact' ,
+                            ],
+                            [
+                                'label' => 'Франшиза',
+                                'url' => Url::to(['/franchise']),
+                                'active' => Yii::$app->controller->module->id == 'franchise' ,
+                            ],
+                        ],
+                        'options' => [
+                            'class' => 'treeview',
+                        ],
+                        'template' => '<a href="#"><i class="fa fa-leanpub"></i> <span>{label}</span> <i class="fa fa-angle-left pull-right"></i></a>',
+                    ],
+
+                    [
+                        'label' => 'Команда',
+                        'items' => [
+                            [
+                                'label' => 'Навыки',
+                                'url' => Url::to(['/skills']),
+                                'active' => Yii::$app->controller->module->id == 'skills_command'
+                            ],
+                            [
+                                'label' => 'Команда',
+                                'url' => Url::to(['/command']),
+                                'active' => Yii::$app->controller->module->id == 'command' ,
                             ],
                         ],
                         'options' => [
