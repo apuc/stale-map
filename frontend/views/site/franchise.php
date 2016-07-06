@@ -29,7 +29,7 @@ $this->registerMetaTag([
             <img src="/img/tmp/slide.jpg" alt="" />
         </div>
         <!-- close .franchise__carousel -->
-        <a href="#" class="franchise_btn">получить франчайзинговый пакет </a>
+        <a href="#parent" class="franchise_btn open_modal">получить франчайзинговый пакет </a>
     </div>
     <!-- close .site-container -->
 </section>

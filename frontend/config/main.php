@@ -49,7 +49,8 @@ return [
                 'contact' => 'site/contact',
                 'price' => 'site/price',
                 'franchise' => 'site/franchise',
-                'specials' => 'specials/default'
+                'specials' => 'specials/default',
+                'search' => 'search/default',
             ]
         ],
         'mailer' => [
@@ -75,6 +76,9 @@ return [
         ],
         'services' => [
             'class' => 'frontend\modules\services\Services',
+        ],
+        'search' => [
+            'class' => 'frontend\modules\search\Search',
         ],
     ],
     'params' => $params,

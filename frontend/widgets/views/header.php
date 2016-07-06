@@ -7,17 +7,25 @@ use common\classes\S;
     <div class="site-container">
         <div class="header-top">
             <ul class="social">
-                <li class="soc-1"><a href="#"></a></li>
-                <li class="soc-2"><a href="#"></a></li>
-                <li class="soc-3"><a href="#"></a></li>
-                <li class="soc-4"><a href="#"></a></li>
-                <li class="soc-5"><a href="#"></a></li>
+                <li class="soc-1"><a href="<?= S::get('vk_link'); ?>"></a></li>
+                <li class="soc-2"><a href="<?= S::get('fb_link'); ?>"></a></li>
+                <li class="soc-3"><a href="<?= S::get('tw_link'); ?>"></a></li>
+                <li class="soc-4"><a href="<?= S::get('g_link'); ?>"></a></li>
+                <li class="soc-5"><a href="<?= S::get('you_link'); ?>"></a></li>
             </ul>
             <div class="right-part">
-                <a href="#" class="sub">подписаться</a>
+
+                <a href="#subscription" class="sub open_modal">подписаться</a>
                 <span class="tel"><?= S::get('phone_header') ?></span>
-                <a href="" class="mail"><img src="/theme/images/icons/mail-1.png" alt=""/></a>
-                <a href="" class="search"><img src="/theme/images/icons/search.png" alt=""/></a>
+                <a href="#feedback" class="mail open_modal"><img src="/theme/images/icons/mail-1.png" alt=""/></a>
+
+                
+                <a href="" class="search" id="showFormSearch"><img src="/theme/images/icons/search.png" alt=""/>
+                <form action="<?= \yii\helpers\Url::to(['/search'])?>" method="post" id="search">
+                    <input type="text" name="searchSite" placeholder="Поиск" class="inpSearch">
+                    <input type="hidden" name="_csrf" value="<?= Yii::$app->request->getCsrfToken(); ?>">
+                </form>
+                </a>
             </div>
         </div>
         <div class="header-bottom">

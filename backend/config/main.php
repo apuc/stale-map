@@ -61,6 +61,9 @@ return [
         'command' => [
             'class' => 'backend\modules\command\Command',
         ],
+        'partners' => [
+            'class' => 'backend\modules\partners\Partners',
+        ],
     ],
     'components' => [
         /*'user' => [
@@ -102,6 +105,7 @@ return [
                 'services' => 'services/services',
                 'skills' => 'skills_command/skills',
                 'command' => 'command/command',
+                'partners' => 'partners/partners',
             ]
         ],
         'mailer' => [

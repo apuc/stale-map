@@ -57,7 +57,7 @@
             </p>
         </div>
         <div class="btn-wrapp style-b">
-            <a href=""><span>узнай, что тебя ждет</span></a>
+            <a href="#parent" class="open_modal"><span>узнай, что тебя ждет</span></a>
         </div>
     </div>
 </section>

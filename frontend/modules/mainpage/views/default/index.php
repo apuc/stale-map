@@ -130,7 +130,7 @@ $this->registerMetaTag([
                     </div>
                 </div>
                 <div class="btn-wrapp style-a">
-                    <a href="#" class="btn">получить коммерческое предложение для моей компании</a>
+                    <a href="#parent" class="btn open_modal">получить коммерческое предложение для моей компании</a>
                 </div>
             </div>
         </section>
@@ -374,7 +374,7 @@ $this->registerMetaTag([
                     </div>
                 </div>
                 <div class="btn-wrapp style-d">
-                    <a href="#" class="btn">Заведи успешный бизнес</a>
+                    <a href="#parent" class="btn open_modal">Заведи успешный бизнес</a>
                 </div>
             </div>
         </section>

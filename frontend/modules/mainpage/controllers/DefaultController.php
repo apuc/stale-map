@@ -9,6 +9,7 @@ use common\models\db\GalleryCategory;
 use common\models\db\GalleryWork;
 use common\models\db\Reviews;
 use common\models\db\Services;
+use common\models\db\Subscription;
 use Yii;
 use yii\web\Controller;
 
@@ -51,7 +52,7 @@ class DefaultController extends Controller
         //Debug::prn($mail);
 
         Yii::$app->mailer->compose()
-            ->setFrom('s-tale.ru')
+            ->setFrom('admin@s-tale.ru')
             ->setTo($mail)
             ->setSubject('Заявка на стайлинг')
             ->setTextBody('Заявка на стайлинг')
@@ -59,5 +60,39 @@ class DefaultController extends Controller
             ->send();
 
         echo '<h6>Спасибо. Наш специалист ответит вам в течении 10 минут, данные, предоставленные нам, не попадут 3-им лицам.</h6>';
+    }
+
+    public function actionRequest_sub(){
+        $subscription = new Subscription();
+        $subscription->name = $_POST['name'];
+        $subscription->email = $_POST['email'];
+        $subscription->save();
+        echo "<h3>Спасибо за подписку!!!</h3>";
+    }
+
+    public function actionFeedback(){
+        $mail = S::get('email');
+        Yii::$app->mailer->compose()
+            ->setFrom('admin@s-tale.ru')
+            ->setTo($mail)
+            ->setSubject('Сообщение с сайта')
+            ->setTextBody('Сообщение с сайта')
+            ->setHtmlBody('<b>Имя: </b>' . $_POST['name']  . '<br /><b>Email: </b>' . $_POST['email'] . '<br /> <b>Текст: </b>' . $_POST['text'])
+            ->send();
+
+        echo '<h3>Спасибо за сообщение.</h3>';
+    }
+
+    public function actionRequest_parent(){
+        $mail = S::get('email');
+        Yii::$app->mailer->compose()
+            ->setFrom('admin@s-tale.ru')
+            ->setTo($mail)
+            ->setSubject('Анкета партнера')
+            ->setTextBody('Анкета партнера')
+            ->setHtmlBody('<b>Название: </b>' . $_POST['name']  . '<br /><b>Email: </b>' . $_POST['email'] . '<br /> <b>Вид дейтельности: </b>' . $_POST['vid'] . '<br /> <b>Обород за посл.год: </b>' . $_POST['oborod'] . '<br /> <b>Фактический адрес: </b>' . $_POST['address'] . '<br /> <b>Контактное лицо: </b>' . $_POST['contact'] . '<br /> <b>Телефон: </b>' . $_POST['phone'] . '<br /> <b>Сайт: </b>' . $_POST['site'] )
+            ->send();
+
+        echo '<h3>Спасибо за сообщение. Мы с Вами свяжемся.</h3>';
     }
 }
