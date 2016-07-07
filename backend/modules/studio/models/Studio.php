@@ -9,7 +9,17 @@
 namespace backend\modules\studio\models;
 
 
-class Studio
+class Studio extends \common\models\db\Studio
 {
-
+    public function behaviors()
+    {
+        return [
+            'slug' => [
+                'class' => 'common\behaviors\Slug',
+                'in_attribute' => 'name',
+                'out_attribute' => 'slug',
+                'translit' => true
+            ],
+        ];
+    }
 }

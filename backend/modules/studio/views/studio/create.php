@@ -4,18 +4,19 @@ use yii\helpers\Html;
 
 
 /* @var $this yii\web\View */
-/* @var $model backend\modules\partners\models\Partners */
+/* @var $model backend\modules\studio\models\Studio */
 
-$this->title = 'Создать';
-$this->params['breadcrumbs'][] = ['label' => 'Партнеры', 'url' => ['index']];
+$this->title = 'Добавить';
+$this->params['breadcrumbs'][] = ['label' => 'Studios', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="partners-create">
+<div class="studio-create">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
     <?= $this->render('_form', [
         'model' => $model,
+        'regions' => $regions,
     ]) ?>
 
 </div>

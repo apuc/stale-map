@@ -197,7 +197,7 @@ $this->registerMetaTag([
             </div>
         </section>
 
-        <section class="section-form">
+        <section class="section-form" id="requestStailingForm">
             <div class="site-container">
                 <h3>заявка на стайлинг</h3>
                 <form class="form" method="post">
@@ -243,7 +243,7 @@ $this->registerMetaTag([
         <section class="section-studies">
             <div class="site-container">
                 <h3>сеть студий</h3>
-                <p>Ниже вы можете посмортеть список, ближайших к вам, студий нашей компании</p>
+                <p>Ниже вы можете посмотреть список, ближайших к вам, студий нашей компании</p>
                 <div class="left-part">
                     <div class="item">
                         <span class="title">Россия:</span>

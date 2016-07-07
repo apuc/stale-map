@@ -5,8 +5,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model backend\modules\partners\models\Partners */
 
-$this->title = 'Update Partners: ' . $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Partners', 'url' => ['index']];
+$this->title = 'Редактировать: ' . $model->id;
+$this->params['breadcrumbs'][] = ['label' => 'Партнеры', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>

@@ -143,6 +143,43 @@ $(document).ready(function(){
         }
     });
 
+    $(document).on('click', '.requestDes', function(e){
+        var phone = $("input[name='desphone']").val(),
+            csrf = $("input[name='csrf']").val();
+        if(phone != ''){
+            e.preventDefault();
+            $.ajax({
+                type: 'POST',
+                url: "/mainpage/default/request_individual_design/",
+                data: 'phone=' + phone + '&_csrf=' + csrf,
+                success: function (data) {
+                    //console.log(data);
+                    $('.IndividualDesign').html(data);
+                }
+            });
+            return false;
+        }
+    });
+
+    $(document).on('click', '.requestTap', function(e){
+        var phone = $("input[name='tapphone']").val(),
+            address = $("input[name='tapaddress']").val(),
+            csrf = $("input[name='csrf']").val();
+        if(phone != '' && address != ''){
+            e.preventDefault();
+            $.ajax({
+                type: 'POST',
+                url: "/mainpage/default/request_taping/",
+                data: 'phone=' + phone + '&_csrf=' + csrf + '&address=' + address,
+                success: function (data) {
+                    //console.log(data);
+                    $('.taping').html(data);
+                }
+            });
+            return false;
+        }
+    });
+
     $(document).on('click', '.requestParent', function(e){
 
         var name = $("input[name='parentName']").val(),

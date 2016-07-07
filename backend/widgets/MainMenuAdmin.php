@@ -119,6 +119,11 @@ class MainMenuAdmin extends Widget
                         'active' => Yii::$app->controller->module->id == 'partners' ,
                     ],
                     [
+                        'label' => 'Студии',
+                        'url' => Url::to(['/studio']),
+                        'active' => Yii::$app->controller->module->id == 'studio' ,
+                    ],
+                    [
                         'label' => 'Страницы',
                         'items' => [
                             [

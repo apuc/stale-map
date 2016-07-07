@@ -149,3 +149,14 @@ form#search {
     color: #fff;
     border: 2px solid #fff;
 }
+
+.modalDes, .modalTap {
+    text-align: center;
+}
+
+.footer-wrapper {
+    color: #bbb;}
+
+.form h6{
+    font-size: 17px!important;
+}

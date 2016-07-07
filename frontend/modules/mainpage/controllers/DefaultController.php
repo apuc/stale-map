@@ -95,4 +95,30 @@ class DefaultController extends Controller
 
         echo '<h3>Спасибо за сообщение. Мы с Вами свяжемся.</h3>';
     }
+
+    public function actionRequest_individual_design(){
+        $mail = S::get('email');
+        Yii::$app->mailer->compose()
+            ->setFrom('admin@s-tale.ru')
+            ->setTo($mail)
+            ->setSubject('Заявка на индивидуальный дизайн')
+            ->setTextBody('Заявка на индивидуальный дизайн')
+            ->setHtmlBody('<b>Телефон: </b>' . $_POST['phone'])
+            ->send();
+
+        echo '<h3>Спасибо. Наш специалист ответит вам в течении 10 минут, данные, предоставленные нам, не попадут 3-им лицам.</h3>';
+    }
+
+    public function actionRequest_taping(){
+        $mail = S::get('email');
+        Yii::$app->mailer->compose()
+            ->setFrom('admin@s-tale.ru')
+            ->setTo($mail)
+            ->setSubject('Оклейка по выезду')
+            ->setTextBody('Оклейка по выезду')
+            ->setHtmlBody('<b>Телефон: </b>' . $_POST['phone'] . '<br /> <b>Адрес: </b>' . $_POST['address'])
+            ->send();
+
+        echo '<h3>Спасибо. Наш специалист ответит вам в течении 10 минут, данные, предоставленные нам, не попадут 3-им лицам.</h3>';
+    }
 }

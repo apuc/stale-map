@@ -4,19 +4,19 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel backend\modules\partners\models\PartnersSearch */
+/* @var $searchModel backend\modules\studio\models\StudioSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Партнеры';
+$this->title = 'Студии';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="partners-index">
+<div class="studio-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Добавить партнера', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Добавить', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -25,8 +25,15 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
-            'logo',
-            'link',
+            'name',
+            'city_id',
+            'address',
+            'address_dop',
+            // 'phone',
+            // 'slug',
+            // 'description:ntext',
+            // 'meta_keyword',
+            // 'meta_description',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
