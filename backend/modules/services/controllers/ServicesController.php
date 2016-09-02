@@ -2,6 +2,9 @@
 
 namespace backend\modules\services\controllers;
 
+use common\models\db\Benefit;
+use common\models\db\BenefitServices;
+use common\models\db\ServicesImg;
 use Yii;
 use backend\modules\services\models\Services;
 use backend\modules\services\models\ServicesSearch;
@@ -66,10 +69,19 @@ class ServicesController extends Controller
         $model = new Services();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            ServicesImg::updateAll(['services_id' => $model->id],  ['services_id' => 99999]);
+            foreach ($_POST['benefit'] as $item) {
+                $benefit = new BenefitServices();
+                $benefit->benefit_id = $item;
+                $benefit->servises_id = $model->id;
+                $benefit->save();
+            }
             return $this->redirect(['index']);
         } else {
+            $benefitAll = Benefit::find()->all();
             return $this->render('create', [
                 'model' => $model,
+                'benefitAll' => $benefitAll,
             ]);
         }
     }
@@ -85,10 +97,25 @@ class ServicesController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            BenefitServices::deleteAll(['servises_id' => $id]);
+            ServicesImg::updateAll(['services_id' => $model->id],  ['services_id' => 99999]);
+            foreach ($_POST['benefit'] as $item) {
+                $benefit = new BenefitServices();
+                $benefit->benefit_id = $item;
+                $benefit->servises_id = $model->id;
+                $benefit->save();
+            }
+
             return $this->redirect(['index']);
         } else {
+            $benefitAll = Benefit::find()->all();
+            $benefitSel = BenefitServices::find()->where(['servises_id' => $id])->all();
+
             return $this->render('update', [
                 'model' => $model,
+                'benefitAll' => $benefitAll,
+                'benefitSel' => $benefitSel,
+                'img' => ServicesImg::find()->where(['services_id' => $id])->all(),
             ]);
         }
     }
@@ -120,5 +147,37 @@ class ServicesController extends Controller
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
+    }
+
+
+    public function actionUpload_file(){
+
+        //Debug::prn($_SERVER);
+
+        //$dir = Yii::$app->urlManagerFrontend->createAbsoluteUrl(['/frontend/web/media/workImg/']) . '/';
+        $dir = $_SERVER['DOCUMENT_ROOT'] . '/frontend/web/media/servicesImg/';
+        $dirDb = '/frontend/web/media/servicesImg/';
+        $i = 0;
+
+        if (!empty($_FILES['file']['name'][0])) {
+            //AboutPhoto::deleteAll(['work_id' => 99999]);
+            foreach ($_FILES['file']['name'] as $file) {
+
+                move_uploaded_file($_FILES['file']['tmp_name'][$i], $dir . $file);
+                $img = new ServicesImg();
+                $img->services_id = 99999;
+                $img->img = $dirDb . $file;
+
+                $img->save();
+
+                $i++;
+            }
+        }
+        echo 1;
+    }
+
+    public function actionDelete_file(){
+        ServicesImg::deleteAll(['id' => $_GET['id']]);
+        echo 1;
     }
 }

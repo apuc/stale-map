@@ -67,6 +67,9 @@ return [
         'studio' => [
             'class' => 'backend\modules\studio\Studio',
         ],
+        'benefit' => [
+            'class' => 'backend\modules\benefit\Benefit',
+        ],
     ],
     'components' => [
         /*'user' => [
@@ -110,6 +113,7 @@ return [
                 'command' => 'command/command',
                 'partners' => 'partners/partners',
                 'studio' => 'studio/studio',
+                'benefit' => 'benefit/benefit',
             ]
         ],
         'mailer' => [

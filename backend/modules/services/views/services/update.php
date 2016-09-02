@@ -15,6 +15,9 @@ $this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['view', 'i
 
     <?= $this->render('_form', [
         'model' => $model,
+        'benefitAll' => $benefitAll,
+        'benefitSel' => $benefitSel,
+        'img' => $img,
     ]) ?>
 
 </div>

@@ -11,6 +11,8 @@ $this->registerMetaTag([
     'name' => 'keywords',
     'content' =>S::get('keywords') ,
 ]);
+
+
 ?>
 
         <section class="section-slider">
@@ -200,7 +202,7 @@ $this->registerMetaTag([
         <section class="section-form" id="requestStailingForm">
             <div class="site-container">
                 <h3>заявка на стайлинг</h3>
-                <form class="form" method="post">
+                <!--<form class="form" method="post">
                     <div class="form-type-text">
                         <input type="text" name="name" placeholder="Ваше Имя" required/>
                     </div>
@@ -213,9 +215,18 @@ $this->registerMetaTag([
                     <div class="btn-wrapp style-c">
                         <input type="submit" class="btn requestStiling" value="записаться"/>
                     </div>
-                    <input type="hidden" name="csrf" value="<?= Yii::$app->request->getCsrfToken(); ?>">
+                    <input type="hidden" name="csrf" value="<?/*= Yii::$app->request->getCsrfToken(); */?>">
                     <p>Наш специалист ответит вам в течении 10 минут, данные, предоставленные нам, не попадут 3-им лицам</p>
+                </form>-->
+                <form action="#" class="section-form__box form">
+                    <input type="text" name="auto" id=="section-form_auto" class="section-form__field" placeholder="Ваш авто" required />
+                    <input type="tel" name="phone" id=="section-form_phone" class="section-form__field" placeholder="Телефон" required />
+                    <input type="email" name="email" id=="section-form_mail" class="section-form__field" placeholder="E-mail" required />
+                    <textarea name="text" id="section-form_text" class="section-form__text" placeholder="Пожелания" required></textarea>
+                    <input type="hidden" name="csrf" value="<?= Yii::$app->request->getCsrfToken(); ?>">
+                    <button class="section-form__btn requestStiling">узнать предложение</button>
                 </form>
+
                 <h6>Помимо стандартных услуг, наша компания может предложить вам:</h6>
                 <div class="items">
                     <div class="item">

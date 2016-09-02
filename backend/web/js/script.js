@@ -24,8 +24,6 @@ $(document).ready(function(){
 
     $('#saveInfo').on('click', function(e){
         $('#input-5').fileinput('upload');
-        //return false;
-
     });
 
     $(document).on('click', '.addPhone', function(){

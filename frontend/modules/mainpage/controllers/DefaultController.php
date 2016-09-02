@@ -56,7 +56,7 @@ class DefaultController extends Controller
             ->setTo($mail)
             ->setSubject('Заявка на стайлинг')
             ->setTextBody('Заявка на стайлинг')
-            ->setHtmlBody('<b>Имя: </b>' . $_POST['name'] . '<br /> <b>Фамилия: </b>' . $_POST['lastname'] . '<br /><b>Email: </b>' . $_POST['email'] )
+            ->setHtmlBody('<b>Авто: </b>' . $_POST['auto'] . '<br /> <b>Телефон: </b>' . $_POST['phone'] . '<br /><b>Email: </b>' . $_POST['email'] . '<br /><b>Пожелания: </b>' . $_POST['text'] )
             ->send();
 
         echo '<h6>Спасибо. Наш специалист ответит вам в течении 10 минут, данные, предоставленные нам, не попадут 3-им лицам.</h6>';

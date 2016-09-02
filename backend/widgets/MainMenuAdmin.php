@@ -109,8 +109,23 @@ class MainMenuAdmin extends Widget
                     ],
                     [
                         'label' => 'Услуги',
-                        'url' => Url::to(['/services']),
-                        'active' => Yii::$app->controller->module->id == 'services' ,
+                        'items' => [
+                            [
+                                'label' => 'Услуги',
+                                'url' => Url::to(['/services']),
+                                'active' => Yii::$app->controller->module->id == 'services' ,
+                            ],
+                            [
+                                'label' => 'Преимущества',
+                                'url' => Url::to(['/benefit']),
+                                'active' => Yii::$app->controller->module->id == 'benefit' ,
+                            ],
+                        ],
+                        'options' => [
+                            'class' => 'treeview',
+                        ],
+                        'template' => '<a href="#"><i class="fa fa-leanpub"></i> <span>{label}</span> <i class="fa fa-angle-left pull-right"></i></a>',
+
                     ],
 
                     [

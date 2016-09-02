@@ -71,22 +71,23 @@ $(document).ready(function(){
 
     $(document).on('click', '.requestStiling', function(e){
 
-        var name = $("input[name='name']").val(),
-            lastname = $("input[name='lasname']").val(),
+        var auto = $("input[name='auto']").val(),
+            phone = $("input[name='phone']").val(),
             email = $("input[name='email']").val(),
+            text = $("textarea[name='text']").val(),
             csrf = $("input[name='csrf']").val();
 
         var emailB = email.indexOf("@");
         //console.log(emailB);
 
-        if(name != '' && lastname != '' && emailB > 0){
+        if(auto != '' && phone != '' && emailB > 0 && text != ''){
             e.preventDefault();
             $.ajax({
                 type: 'POST',
                 url: "/mainpage/default/request_stailing/",
-                data: 'name=' + name + '&_csrf=' + csrf + '&lastname=' + lastname + '&email=' + email,
+                data: 'auto=' + auto + '&_csrf=' + csrf + '&phone=' + phone + '&email=' + email + '&text=' + text,
                 success: function (data) {
-                    console.log(data);
+                    //console.log(data);
                     $('.form').html(data);
                 }
             });
@@ -101,7 +102,7 @@ $(document).ready(function(){
             csrf = $("input[name='csrf']").val();
 
         var emailB = email.indexOf("@");
-        //console.log(emailB);
+        //console.log(email);
 
         if(name != '' && emailB > 0){
             e.preventDefault();
@@ -238,11 +239,12 @@ $(document).ready(function(){
     });
 
     $("#showFormSearch").click(function () {
-        $("form:eq(0)").show("fast", function () {
-            // use callee so don't have to name the function
-            $(this).next().show("fast", arguments.callee);
+        /*$("form:eq(0)").show("fast", function () {
+            $(this).next().show("fast", 2000);
             $('.inpSearch').focus();
-        });
+        });*/
+        $("form#search").show(2000);
+        $('.inpSearch').focus();
         return false;
     });
 

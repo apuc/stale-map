@@ -14,13 +14,35 @@ use common\classes\S;
                 <li class="soc-5"><a href="<?= S::get('you_link'); ?>"></a></li>
             </ul>
             <div class="right-part">
-
-                <a href="#subscription" class="sub open_modal">подписаться</a>
+                <div class="sub__wrap">
+                    <a href="" class="sub">подписаться</a>
+                    <span class="sub__box">
+                        <form class="subscription">
+                            <h5>Подписаться на новости</h5>
+                            <input name="subname" type="text" class="sub__box_inp" placeholder="Ваше имя" required>
+                            <input name="subemail" type="email" class="sub__box_inp" placeholder="Ваше E-mail" required>
+                            <input type="hidden" name="csrf" value="<?= Yii::$app->request->getCsrfToken(); ?>">
+                            <button class="sub__box_btn requestSub">Подписаться</button>
+                        </form>
+                    </span>
+                </div>
                 <span class="tel"><?= S::get('phone_header') ?></span>
-                <a href="#feedback" class="mail open_modal"><img src="/theme/images/icons/mail-1.png" alt=""/></a>
-
-                
+                <div class="mail__wrap">
+                    <a href="" class="mail"><img src="/theme/images/icons/mail-1.png" alt=""/></a>
+                    <div class="mail__box">
+                        <form class="feedback">
+                            <h4>Напишите нам</h4>
+                            <p>У Вас есть вопрос к нам? Не стесняйтесь - пишите! Наша служба поддержки свяжется с Вами, как можно скорее</p>
+                            <input name="feedname" type="text" class="sub__box_inp" placeholder="Ваше имя" required>
+                            <input name="feedemail" type="email" class="sub__box_inp" placeholder="Ваше E-mail" required>
+                            <textarea name="feedtext"  class="sub__box_text" placeholder="Сообщение..." required></textarea>
+                            <input type="hidden" name="csrf" value="<?= Yii::$app->request->getCsrfToken(); ?>">
+                            <button class="sub__box_btn requestFeed">отправить</button>
+                        </form>
+                    </div>
+                </div>
                 <a href="" class="search" id="showFormSearch"><img src="/theme/images/icons/search.png" alt=""/>
+
                 <form action="<?= \yii\helpers\Url::to(['/search'])?>" method="post" id="search">
                     <input type="text" name="searchSite" placeholder="Поиск" class="inpSearch">
                     <input type="hidden" name="_csrf" value="<?= Yii::$app->request->getCsrfToken(); ?>">
